@@ -36,11 +36,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           displayName: authUser.displayName || 'User',
         });
 
-        // Fetch or create user profile
         try {
           let profile = await getUserProfile(authUser.uid);
+
           if (!profile) {
-            // Create default profile for new user
             profile = {
               userId: authUser.uid,
               email: authUser.email || '',
@@ -52,9 +51,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
               createdAt: new Date(),
               updatedAt: new Date(),
             };
+
             await createUserProfile(authUser.uid, profile);
           }
-          setUserProfile(profile);
+
+          setUserProfile(profile as UserProfile);
         } catch (error) {
           console.error('Error fetching user profile:', error);
         }

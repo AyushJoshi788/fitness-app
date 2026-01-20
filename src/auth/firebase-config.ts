@@ -1,9 +1,12 @@
 // src/auth/firebase-config.ts
 // Setup: npm install firebase
 
-import { initializeApp } from 'firebase/app';
-import { getAuth, Auth } from 'firebase/auth';
-import { getFirestore, Firestore } from 'firebase/firestore';
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import type { Auth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import type { Firestore } from "firebase/firestore";
+
 
 /**
  * STEP 1: Get these from Firebase Console (console.firebase.google.com)

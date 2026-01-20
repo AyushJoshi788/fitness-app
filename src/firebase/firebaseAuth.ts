@@ -6,11 +6,13 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  User,
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
 } from 'firebase/auth';
+
+import type { User } from 'firebase/auth';
+
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { auth, db } from './firebaseConfig';
 
